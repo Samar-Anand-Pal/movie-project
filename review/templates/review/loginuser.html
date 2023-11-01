@@ -1,0 +1,81 @@
+{% extends "review/base.html" %}
+
+{% block content %}
+
+<style>
+        body {
+
+        background-image: url('/static/review/signuploginbackground.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    .custom-navbar { position: static;
+    }
+    .f{
+            display: flex;
+            justify-content: center;
+            color: white;
+
+     }
+    .content{
+            height: 173px;
+    }
+    .box{
+    border: 2px solid rgb(233, 225, 225);
+    text-align: center;
+    /* padding: 0%; */
+    width: 50%;
+    margin-top: 125px;
+    margin-bottom: 50px;
+    margin-left: 350px;
+    margin-right:300px ;
+    }
+    .text{
+    margin-left: 100px;
+    margin-right: 100px;
+    }
+</style>
+<div class="box">
+
+    <h2 class="heading f">Login</h2>
+
+  
+        <div class="error">
+
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div><label  class="f"  for="username">Username</label></div>
+                    <div class="text">
+
+                        <input type="text" name="username" placeholder="Name" class="form-control" id="username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div><label for="password " class="f">Password</label></div>
+                    <div class="text">
+
+                        <input type="password" name="password" placeholder="Password" class="form-control" id="password">
+                    </div>
+                </div>
+                <div class="f">
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <hr>
+            <div class="text-center f">
+                New user? <a href="{% url 'signupuser' %}">Create an account</a>
+            </div>
+        </div>
+    
+</div>
+<div class="content">
+
+</div>
+{% endblock %}
