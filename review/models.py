@@ -19,7 +19,7 @@ class userinput(models.Model):
     sno= models.AutoField(primary_key=True ,default=1)
     m_name= models.ForeignKey(movies, on_delete=models.CASCADE)
     u_name=models.CharField(max_length=30)
-    review=models.TextField()
+    review=models.CharField(max_length=500,db_index=False)
     rating = models.IntegerField()
 
 
@@ -29,7 +29,7 @@ class userinput(models.Model):
 class userinputs(models.Model):
     m_name= models.CharField(max_length=50)
     u_name=models.CharField(max_length=30)
-    review=models.TextField()
+    review=models.CharField(max_length=500,db_index=False)
     rating = models.IntegerField()
 
 
